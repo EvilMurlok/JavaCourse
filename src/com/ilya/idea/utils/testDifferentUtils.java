@@ -1,7 +1,14 @@
 package com.ilya.idea.utils;
 
-public class testSortedList {
-    public static void main(String[] args) {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.StringTokenizer;
+import java.util.regex.Pattern;
+
+public class testDifferentUtils {
+
+    public static void testSortedList(){
         SortedList<String> testSortedList = new SortedList<>();
         System.out.println("---------------------------work with empty SortedList-----------------------------------------");
         System.out.println(testSortedList.size());
@@ -76,5 +83,46 @@ public class testSortedList {
         System.out.println(testSortedList1.remove(15));
         System.out.println(testSortedList1);
         System.out.println(testSortedList);
+    }
+
+    public static void testSplitTokens(){
+        //String[] test = "bla   bla blablaaaablabbblaaa    bla blaa       lkblkblaaaafdn lfndlsk    blaa   nlkgns      ".split("\\s");
+        //ArrayList<String> tempList = new ArrayList<>(Arrays.asList(test));
+        //tempList.removeAll(Collections.singleton(""));
+        //System.out.println(tempList);
+
+        SplitTokens st = new SplitTokens("", "");
+        System.out.println(st.getTokens());
+        System.out.println(st.getFinalStatistics());
+        st.createStatistics();
+        System.out.println(st.getFinalStatistics());
+        System.out.println(st.deleteAllDuplicates());
+
+        st.changeData("");
+        System.out.println(st.getTokens());
+        System.out.println(st.getFinalStatistics());
+        st.createStatistics();
+        System.out.println(st.getFinalStatistics());
+        System.out.println(st.deleteAllDuplicates());
+
+        // since a regular expression is supplied to the split function,
+        // it is necessary to escape all special characters such as an asterisk
+        st.changeData("STARS****STARS***STARS****STARS***STARS****MORE****STARS!****STARS", "\\*\\*\\*\\*");
+        st.createStatistics();
+        System.out.println(st.getTokens());
+        System.out.println(st.getFinalStatistics());
+        System.out.println(st.deleteAllDuplicates());
+        System.out.println();
+
+        st.changeData("bla\tbla\tblablaaaablabbblaaat\ttblatt\ttblatt\tbla\tbla\taaa\tbla\tbbblaaatt\t\t\t\t\tblablaaaablabbblaaat", "\t");
+        st.createStatistics();
+        System.out.println(st.getTokens());
+        System.out.println(st.getFinalStatistics());
+        System.out.println(st.deleteAllDuplicates());
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        testSplitTokens();
     }
 }
