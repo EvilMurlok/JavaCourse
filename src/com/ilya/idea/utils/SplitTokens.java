@@ -1,12 +1,12 @@
 /*
-Задача 1 На вход программы поступает строка
-(Пример: «aa aaa aa bb bbb bbbb bb ddd uuu iii ooo»)
-Необходимо распарсить строку на токены и сделать следующий вывод аа:2 aaa:1 bb:2 … и т.д.
-Где цифра после двоеточия обозначает количество появлений этого токена в строке
+Problem 1 The input of the program receives a line
+(Example: "aa aaa aa bb bbb bbbb bb ddd uuu iii ooo")
+It is necessary to parse the string into tokens and draw the following output aa: 2 aaa: 1 bb: 2 ... and so on.
+Where the digit after the colon denotes the number of occurrences of this token in the string
 
-!!! Разделитель любой, он также может состоять из любого количества символов !!!
+!!! Any separator, it can also consist of any number of characters !!!
 
-Задача 2 Для такой же строки удалить все повторяющиеся значения и вывести в исходном порядке.
+Task 2 For the same string, remove all duplicate values and display them in their original order.
  */
 
 package com.ilya.idea.utils;
@@ -38,11 +38,6 @@ public class SplitTokens {
 
     public HashMap<String, Integer> getFinalStatistics(){
         return this.finalStatistics;
-    }
-
-    // DELETE THIS (IT WAS FOR DEBUG!)
-    public ArrayList<String> getTokens(){
-        return this.tokens;
     }
 
     public void changeData(String newUserInput, String newUserDelimiter){
