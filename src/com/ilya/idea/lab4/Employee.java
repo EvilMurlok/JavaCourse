@@ -58,6 +58,10 @@ public class Employee {
         return age;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -177,7 +181,7 @@ public class Employee {
                 .setGender(Gender.MALE)
                 .setRole(Role.STAFF)
                 .setDept("Development-dept")
-                .setEMail("ilia@yandex.ru")
+                .setEMail("ilia@gmail.com")
                 .setPhone("89647777777")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -207,7 +211,7 @@ public class Employee {
                 .setGender(Gender.MALE)
                 .setRole(Role.STAFF)
                 .setDept("QA-dept")
-                .setEMail("ivan@yandex.ru")
+                .setEMail("ivan@gmail.com")
                 .setPhone("89645555555")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -222,7 +226,7 @@ public class Employee {
                 .setGender(Gender.MALE)
                 .setRole(Role.MANAGER)
                 .setDept("QA-dept")
-                .setEMail("petr@yandex.ru")
+                .setEMail("petr@mail.ru")
                 .setPhone("89644444444")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -252,7 +256,7 @@ public class Employee {
                 .setGender(Gender.FEMALE)
                 .setRole(Role.EXECUTIVE)
                 .setDept("Frontend-dept")
-                .setEMail("mariya@yandex.ru")
+                .setEMail("mariya@gmail.com")
                 .setPhone("89642222222")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -267,7 +271,7 @@ public class Employee {
                 .setGender(Gender.FEMALE)
                 .setRole(Role.STAFF)
                 .setDept("Frontend-dept")
-                .setEMail("olga@yandex.ru")
+                .setEMail("olga@mail.ru")
                 .setPhone("89641111111")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -282,7 +286,7 @@ public class Employee {
                 .setGender(Gender.FEMALE)
                 .setRole(Role.MANAGER)
                 .setDept("Backend-dept")
-                .setEMail("alina@yandex.ru")
+                .setEMail("alina@gmail.com")
                 .setPhone("89642121212")
                 .setAddress("planet Earth")
                 .setCity("Moscow")
@@ -315,6 +319,51 @@ public class Employee {
                 .setEMail("denis@yandex.ru")
                 .setPhone("89644141414")
                 .setAddress("planet Earth")
+                .setCity("Moscow")
+                .setState("Moscow")
+                .setCode(777)
+                .build());
+
+        shortList.add(new Builder()
+                .setGivenName("Anna")
+                .setSurName("Lubimova")
+                .setAge(48)
+                .setGender(Gender.FEMALE)
+                .setRole(Role.MANAGER)
+                .setDept("Frontend-dept")
+                .setEMail("Anna@mail.ru")
+                .setPhone("89268168418")
+                .setAddress("Planet Earth")
+                .setCity("Moscow")
+                .setState("Moscow")
+                .setCode(777)
+                .build());
+
+        shortList.add(new Builder()
+                .setGivenName("Darya")
+                .setSurName("Maksimova")
+                .setAge(42)
+                .setGender(Gender.FEMALE)
+                .setRole(Role.EXECUTIVE)
+                .setDept("Development-dept")
+                .setEMail("Darya@mail.ru")
+                .setPhone("89162591343")
+                .setAddress("Planet Earth")
+                .setCity("Moscow")
+                .setState("Moscow")
+                .setCode(777)
+                .build());
+
+        shortList.add(new Builder()
+                .setGivenName("Denis")
+                .setSurName("Petrov")
+                .setAge(29)
+                .setGender(Gender.MALE)
+                .setRole(Role.STAFF)
+                .setDept("QA-dept")
+                .setEMail("Denis@yandex.ru")
+                .setPhone("89178140903")
+                .setAddress("Planet Earth")
                 .setCity("Moscow")
                 .setState("Moscow")
                 .setCode(777)
