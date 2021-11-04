@@ -1,7 +1,7 @@
 package com.ilya.idea.lab4;
 
 public class Account {
-    public void paySalary(Employee employee){
+    public static void paySalary(Employee employee){
         System.out.println("Employee: " + employee.getRole() +
                 " " + employee.getGivenName() +
                 " " + employee.getSurName() +
@@ -9,7 +9,7 @@ public class Account {
                 " from department " + employee.getDept() + " received SALARY!");
     }
 
-    public void payPremium(Employee employee){
+    public static void payPremium(Employee employee){
         System.out.println("Employee: " + employee.getRole() +
                 " " + employee.getGivenName() +
                 " " + employee.getSurName() +

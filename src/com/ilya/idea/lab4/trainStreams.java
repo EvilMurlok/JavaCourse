@@ -1,25 +1,24 @@
 package com.ilya.idea.lab4;
 
-import java.lang.reflect.Parameter;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class trainStreams {
+public class TrainStreams {
     public static void main(String[] args) {
         List<Employee> listToTrain = Employee.createShortList();
-        Account acc = new Account();
+
 
         // Payment of bonuses to women employees
         System.out.println("-----------------------------------------------------------------------------------------");
         listToTrain.stream()
-                .filter(employee -> employee.getGender() == Employee.Gender.FEMALE)
-                .forEach(acc::payPremium);
+                .filter(employee -> employee.getGender().equals(Gender.FEMALE))
+                .forEach(Account::payPremium);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Payment of salaries to employees of a Backend department
         listToTrain.stream()
                 .filter(employee -> employee.getDept().equals("Backend-dept"))
-                .forEach(acc::paySalary);
+                .forEach(Account::paySalary);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Payment of bonuses to employees over 30 working in a Frontend department
@@ -28,19 +27,19 @@ public class trainStreams {
                                         employee.getDept().equals("Frontend-dept");
         listToTrain.stream()
                 .filter(predicate)
-                .forEach(acc::payPremium);
+                .forEach(Account::payPremium);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Payment of salaries to managers
         listToTrain.stream()
-                .filter(employee -> employee.getRole() == Employee.Role.MANAGER)
-                .forEach(acc::paySalary);
+                .filter(employee -> employee.getRole().equals(Role.MANAGER))
+                .forEach(Account::paySalary);
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Payment of bonuses to staff
         listToTrain.stream()
-                .filter(employee -> employee.getRole() == Employee.Role.STAFF)
-                .forEach(acc::payPremium);
+                .filter(employee -> employee.getRole().equals(Role.STAFF))
+                .forEach(Account::payPremium);
         System.out.println("-----------------------------------------------------------------------------------------");
         System.out.println("OK!");
     }

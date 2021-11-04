@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.function.*;
 import java.util.stream.Collectors;
 
-public class trainFunctionalInterfaces {
+public class TrainFunctionalInterfaces {
     public static void main(String[] args) {
         // randomListToTest.forEach(System.out::println);
         System.out.println("-----------------------------------------------------------------------------------------");
@@ -20,11 +20,11 @@ public class trainFunctionalInterfaces {
                 employee.getGivenName() + " " + employee.getSurName() +
                 " " + employee.getAge() + " years old from the department: " + employee.getDept());
         Predicate<Employee> predicate1 = employee -> (employee.getDept().equals("Frontend-dept") ||
-                employee.getDept().equals("QA-dept")) && employee.getAge() >= 1000;
+                employee.getDept().equals("QA-dept")) && employee.getAge() >= 40;
         listToTest.stream().filter(predicate1).forEach(printConsumer);
         // output the first such employee
         System.out.println("Output the first such employee:");
-        printConsumer.accept(listToTest.stream().filter(predicate1).findFirst().orElse(new Employee()));
+        printConsumer.accept(listToTest.stream().filter(predicate1).findFirst().orElse(new Employee.Builder().build()));
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // get phone numbers without the eight and operator code
@@ -38,8 +38,8 @@ public class trainFunctionalInterfaces {
         System.out.println("-----------------------------------------------------------------------------------------");
 
         // Create an arrayList with 10 random employees using DatabaseEmployee
-        Supplier<Employee> employeeMaleSupplier = () -> DatabaseEmployee.getEmployee(Employee.Gender.MALE);
-        Supplier<Employee> employeeFemaleSupplier = () -> DatabaseEmployee.getEmployee(Employee.Gender.FEMALE);
+        Supplier<Employee> employeeMaleSupplier = () -> DatabaseEmployee.getEmployee(Gender.MALE);
+        Supplier<Employee> employeeFemaleSupplier = () -> DatabaseEmployee.getEmployee(Gender.FEMALE);
         List<Employee> randomListToTest = new ArrayList<>();
         for (int i = 0; i < 10; ++i){
             if (i % 2 == 1){

@@ -3,8 +3,8 @@ package com.ilya.idea.lab4;
 import java.util.Random;
 
 public class DatabaseEmployee {
-    private static String getRandomName(Employee.Gender gender){
-        if (gender == Employee.Gender.MALE){
+    private static String getRandomName(Gender gender){
+        if (gender == Gender.MALE){
             String[] firstMenNames = {"Ilia", "Ivan", "Denis", "Filipp", "Daniil", "Andrew"};
             return firstMenNames[new Random().nextInt(6)];
         }
@@ -15,8 +15,8 @@ public class DatabaseEmployee {
         }
     }
 
-    private static String getRandomSurname(Employee.Gender gender){
-        if (gender == Employee.Gender.MALE){
+    private static String getRandomSurname(Gender gender){
+        if (gender == Gender.MALE){
             String[] menSurnames = {"Ivanov", "Petrov", "Sidorov", "Panin", "Maksimov", "Lubimov"};
             return menSurnames[new Random().nextInt(6)];
         }
@@ -30,17 +30,41 @@ public class DatabaseEmployee {
         return 20 + new Random().nextInt(31);
     }
 
-    private static Employee.Role getRandomRole(){
+    private static Role getRandomRole(){
         int choice = new Random().nextInt(3);
         switch (choice){
             case 0:
-                return Employee.Role.STAFF;
+                return Role.STAFF;
             case 1:
-                return Employee.Role.MANAGER;
+                return Role.MANAGER;
             case 2:
-                return Employee.Role.EXECUTIVE;
+                return Role.EXECUTIVE;
         }
-        return Employee.Role.STAFF;
+        return Role.STAFF;
+    }
+
+    private static double getSalary(int min, int max){
+        max -= min;
+        return Math.random() * ++max + min;
+    }
+
+    // staff: 1500-3500, manager: 3501-5000, executive: 5001-8000;
+    private static double getRandomSalary(Role givenRole) {
+        final int LOW_STAFF = 1500;
+        final int HIGH_STAFF = 3500;
+        final int LOW_MANAGER = 3501;
+        final int HIGH_MANAGER = 5000;
+        final int LOW_EXECUTIVE = 5001;
+        final int HIGH_EXECUTIVE = 8000;
+        switch (givenRole){
+            case STAFF:
+                return getSalary(LOW_STAFF, HIGH_STAFF);
+            case MANAGER:
+                return getSalary(LOW_MANAGER, HIGH_MANAGER);
+            case EXECUTIVE:
+                return getSalary(LOW_EXECUTIVE, HIGH_EXECUTIVE);
+        }
+        return getSalary(LOW_STAFF, HIGH_STAFF);
     }
 
     private static String getRandomDepartment(){
@@ -66,14 +90,16 @@ public class DatabaseEmployee {
     }
 
     // in all planets there is the state Moscow and the code of this region is 777
-    public static Employee getEmployee(Employee.Gender gender){
+    public static Employee getEmployee(Gender gender){
         String givenName = DatabaseEmployee.getRandomName(gender);
+        Role randomRole = DatabaseEmployee.getRandomRole();
         return new Employee.Builder()
                 .setGivenName(givenName)
                 .setSurName(DatabaseEmployee.getRandomSurname(gender))
                 .setAge(DatabaseEmployee.getRandomAge())
                 .setGender(gender)
-                .setRole(DatabaseEmployee.getRandomRole())
+                .setRole(randomRole)
+                .setSalary(DatabaseEmployee.getRandomSalary(randomRole))
                 .setDept(DatabaseEmployee.getRandomDepartment())
                 .setEMail(DatabaseEmployee.getRandomEmail(givenName))
                 .setPhone(DatabaseEmployee.getRandomPhone())
